@@ -14,7 +14,26 @@ public class EnemyStats : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Missile") {
 			//Debug.Log ("kek-health");
-			Destroy(this.gameObject);
+			HitEnemy script = other.gameObject.GetComponent<HitEnemy>();
+			if (script.aoe == true) {
+				//its an aoe cluster bomb
+				GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+				foreach (GameObject e in enemies) {
+					float dist = Vector3.Distance(transform.position, e.transform.position);
+					if (dist <= script.aoeRange) {
+						EnemyStats enstats = e.GetComponent<EnemyStats> ();
+						enstats.health -= script.aoeDamage;
+						if (enstats.health <= 0) {
+							Destroy (e.gameObject);
+						}
+					}
+				}
+			}
+			health -= script.damage;
+			if (health <= 0) 
+			{
+				Destroy(this.gameObject);	
+			}
 		}
 	}
 

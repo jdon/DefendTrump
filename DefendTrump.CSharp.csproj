@@ -76,14 +76,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AnimationEnd.cs" />
-    <Compile Include="Assets\DragHandler.cs" />
     <Compile Include="Assets\Scripts\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\FindEnemy.cs" />
     <Compile Include="Assets\Scripts\FollowerScript.cs" />
     <Compile Include="Assets\Scripts\HitEnemy.cs" />
     <Compile Include="Assets\Scripts\draggable.cs" />
     <Compile Include="Assets\Scripts\starupshit.cs" />
-    <Compile Include="Assets\harambe.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

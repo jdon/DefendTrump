@@ -16,7 +16,6 @@ public class FindEnemy : MonoBehaviour {
 	public bool aoe = false;
 	public double aoeRange = 3;
 	public float aoeDamage = 50;
-	bool fire = true;
 	int colorint = 0;
 	// Use this for initialization
 	void Start () {

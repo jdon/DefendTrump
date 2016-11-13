@@ -8,6 +8,10 @@ TagManager:
   - Missile
   - enemy
   - Start
+  - Tower
+  - StartupScript
+  - toggle
+  - OptionsMenu
   layers:
   - Default
   - TransparentFX

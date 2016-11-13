@@ -33,11 +33,6 @@ public class FindEnemy : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-        
-	}
-
     void tryFire()
     {
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("enemy");
@@ -91,5 +86,14 @@ public class FindEnemy : MonoBehaviour {
                 return;
             }
         }
+    }
+
+
+    void OnMouseDown()
+    {
+        Debug.Log("click LUL:");
+        TowerOptionsPane pane = GameObject.FindGameObjectWithTag("OptionsMenu").GetComponent<TowerOptionsPane>();
+        pane.currentTower = this.gameObject;
+        pane.LoadTowerSettings();
     }
 }

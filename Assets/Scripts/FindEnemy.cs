@@ -11,8 +11,6 @@ public class FindEnemy : MonoBehaviour {
 	GameObject bullet;
     public float fireDelay = 0.1f;
 	public int priority = 0;
-	public Boolean priortityHealth = false;
-	public Boolean priortityLast = false;
 	public float speed = 35;
 	public float damage = 100;
 	public bool aoe = false;
@@ -39,14 +37,14 @@ public class FindEnemy : MonoBehaviour {
     {
         GameObject[] Enemies = GameObject.FindGameObjectsWithTag("enemy");
 		//sort
-		if(priortityHealth == true){
+		if(priority == 1){
 			Array.Sort(Enemies,delegate(GameObject Enemy1,GameObject Enemy2) {
 				EnemyStats enemy1Stats = Enemy1.GetComponent<EnemyStats>();
 				EnemyStats enemy2Stats = Enemy2.GetComponent<EnemyStats>();
 				return enemy1Stats.health.CompareTo(enemy2Stats.health);
 			});
 		}
-		if(priortityLast == true)
+		if(priority == 2)
 		{
 			GameObject[] En = GameObject.FindGameObjectsWithTag("enemy");;
 			int x = 0;

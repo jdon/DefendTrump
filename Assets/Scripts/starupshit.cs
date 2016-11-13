@@ -9,13 +9,14 @@ public class starupshit : MonoBehaviour {
 
 	private IEnumerator MyEvent()
 	{
-		while (true)
-		{
-			yield return new WaitForSeconds(spawnDelay); // wait half a second
-			// do things
-			spawnEnemy();
-		}
-	}
+
+        for (int i = 0; i < enemyAmount; i++)
+        {
+            yield return new WaitForSeconds(spawnDelay); // wait half a second
+                                                         // do things
+            spawnEnemy();
+        }
+    }
 
 	public void spawnEnemy(){
 		GameObject startPlace = GameObject.FindGameObjectWithTag("Start");
@@ -24,9 +25,7 @@ public class starupshit : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for (int i = 0; i <= enemyAmount; i++) {
-			StartCoroutine("MyEvent");
-	}
+        StartCoroutine("MyEvent");
 	}
 	// Update is called once per frame
 	void Update () {

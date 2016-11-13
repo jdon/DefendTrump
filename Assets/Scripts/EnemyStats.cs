@@ -18,13 +18,17 @@ public class EnemyStats : MonoBehaviour {
 			if (script.aoe == true) {
 				//its an aoe cluster bomb
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
+				int enemynum = 0;
 				foreach (GameObject e in enemies) {
 					float dist = Vector3.Distance(transform.position, e.transform.position);
 					if (dist <= script.aoeRange) {
-						EnemyStats enstats = e.GetComponent<EnemyStats> ();
-						enstats.health -= script.aoeDamage;
-						if (enstats.health <= 0) {
-							Destroy (e.gameObject);
+						enemynum++;
+						if(enemynum <= script.MaxAoeEnemyNum){
+							EnemyStats enstats = e.GetComponent<EnemyStats> ();
+							enstats.health -= script.aoeDamage;
+							if (enstats.health <= 0) {
+								Destroy (e.gameObject);
+							}	
 						}
 					}
 				}

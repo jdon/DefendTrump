@@ -7,7 +7,7 @@ public class EnemyStats : MonoBehaviour {
 
 	public double health = 100;
 	public float lifeWorth = 1;
-	public float reward;
+	public float reward = 3;
 	void OnDestroy() {
 		GameObject Gamestartup = GameObject.FindGameObjectWithTag ("StartupScript");
 		if (Gamestartup == null){
@@ -16,6 +16,7 @@ public class EnemyStats : MonoBehaviour {
 		starupshit GameStats = Gamestartup.GetComponent<starupshit> ();
 		GameStats.Money += reward;
 		print("enemy was destroyed");
+        Destroy(this.gameObject);
 	}
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,7 @@ public class EnemyStats : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Missile") {
-			//Debug.Log ("kek-health");
+			Debug.Log ("kek-health");
 			HitEnemy script = other.gameObject.GetComponent<HitEnemy>();
 			if (script.aoe == true) {
 				//its an aoe bomb
@@ -46,6 +47,7 @@ public class EnemyStats : MonoBehaviour {
 			health -= script.damage;
 			if (health <= 0) 
 			{
+                Debug.Log("health = " + health + " "); 
 				Destroy(this.gameObject);	
 			}
 		}
@@ -53,9 +55,9 @@ public class EnemyStats : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		reward = (float)(100 -  Math.Pow(1.25,health/100));
-		if(reward > 4){
-			reward = 4;
-		}
+		//reward = (float)(100 -  Math.Pow(1.25,health/100));
+		//if(reward > 4){
+		//	reward = 4;
+		//}
 	}
 }

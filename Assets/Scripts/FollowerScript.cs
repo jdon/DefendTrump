@@ -8,6 +8,7 @@ public class FollowerScript : MonoBehaviour {
     public GameObject[] waypoints;
     private int currentwaypoint = 0;
     public float speed = 3;
+    public int x = 0;
 
 	// Use this for initialization
 	void Start () {

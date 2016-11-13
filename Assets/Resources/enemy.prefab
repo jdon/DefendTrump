@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints: []
   speed: 3
+  x: 0
 --- !u!114 &114675257146952954
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,6 +104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  lifeWorth: 1
+  reward: 3
 --- !u!212 &212637837512688494
 SpriteRenderer:
   m_ObjectHideFlags: 1

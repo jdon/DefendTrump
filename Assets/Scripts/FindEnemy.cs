@@ -18,10 +18,14 @@ public class FindEnemy : MonoBehaviour {
 	public double aoeRange = 3;
 	public float aoeDamage = 50;
 	int colorint = 0;
-	// Use this for initialization
+    // Use this for initialization
 	void Start () {
         StartCoroutine("MyEvent");
 	}
+
+    void Update()
+    {
+    }
 
     private IEnumerator MyEvent()
     {
@@ -77,6 +81,9 @@ public class FindEnemy : MonoBehaviour {
 					re.color = Color.blue;
 					colorint = -1;
 				}
+                Vector3 direction = e.transform.position - transform.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
                 scri.target = e;
 				scri.aoe = aoe;
 				scri.aoeRange = aoeRange;

@@ -10,11 +10,34 @@ public class starupshit : MonoBehaviour {
 	public float life = 100;
 	private float multiplier = 0.9f;
 
-	private IEnumerator MyEvent()
+    public Sprite BasicR;
+    public Sprite BasicG;
+    public Sprite BasicB;
+
+    public Sprite rocketR;
+    public Sprite rocketG;
+    public Sprite rocketB;
+
+    public Sprite bigrocketR;
+    public Sprite bigrocketG;
+    public Sprite bigrocketB;
+
+    public Sprite rapidfireR;
+    public Sprite rapidfireG;
+    public Sprite rapidfireB;
+
+    public Sprite sniperR;
+    public Sprite sniperG;
+    public Sprite sniperB;
+
+    public bool run = false;
+    private IEnumerator MyEvent()
 	{
 
         for (int i = 0; i < enemyAmount; i++)
         {
+            Debug.Log("spawning");
+            Debug.Log(enemyAmount + " i:" + i);
             yield return new WaitForSeconds(spawnDelay); // wait to
                                                          // do things
             spawnEnemy();
@@ -26,27 +49,19 @@ public class starupshit : MonoBehaviour {
 		GameObject enemy = Instantiate(Resources.Load("enemy"), startPlace.transform.position, Quaternion.identity)as GameObject;
 		EnemyStats enStats = enemy.GetComponent<EnemyStats> ();
 		FollowerScript followerstats = enemy.GetComponent<FollowerScript> ();
-		enStats.health *= multiplier;
-		followerstats.speed *= multiplier;
-		enemyAmount *= (int)multiplier;
+        enStats.health *= multiplier;
+        followerstats.speed *= multiplier;
+		//enemyAmount *= (int)multiplier;
 	}
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         StartCoroutine("MyEvent");
-	}
+    }
 	// Update is called once per frame
 	void Update () {
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("enemy");
-		if (enemies.Length == 0) 
-		{
-			multiplier += 0.1f;
-			StartCoroutine("MyEvent");
-			//create new wave as last one is complete
-			Debug.Log("wave complete");
-			spawnEnemy ();
-			return;
-		}
 	}
 
 }

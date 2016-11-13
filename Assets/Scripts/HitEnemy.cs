@@ -25,9 +25,12 @@ public class HitEnemy : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "enemy")
 		{
-			Destroy (this.gameObject);
-		}
-	}
+            Debug.Log("hitenemy: destroy");
+            Destroy(this.gameObject);
+            Destroy(other.gameObject);
+  
+        }
+    }
 	// Update is called once per frame
 	void Update () {
 
@@ -42,7 +45,9 @@ public class HitEnemy : MonoBehaviour {
         }
         previousDirection = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime) - transform.position;
         transform.position = previousDirection + transform.position;
-		GameObject[] Enemies = GameObject.FindGameObjectsWithTag("enemy");
+        float angle = Mathf.Atan2(previousDirection.y, previousDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("enemy");
 		foreach (GameObject e in Enemies) {
 			if (e.transform.position == transform.position) 
 			{

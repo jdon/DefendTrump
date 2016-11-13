@@ -5,7 +5,7 @@ using UnityEngine;
 public class starupshit : MonoBehaviour {
 
 	public int enemyAmount = 10;
-	public int spawnDelay = 0.1;
+	public double spawnDelay = 0.1;
 
 	private IEnumerator MyEvent()
 	{

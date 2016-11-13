@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FollowerScript : MonoBehaviour {
 
@@ -13,6 +14,11 @@ public class FollowerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+		Array.Sort(waypoints,delegate(GameObject Enemy1,GameObject Enemy2) {
+			waypointCode enemy1Stats = Enemy1.GetComponent<waypointCode>();
+			waypointCode enemy2Stats = Enemy2.GetComponent<waypointCode>();
+			return enemy1Stats.num.CompareTo(enemy2Stats.num);
+		});
 	}
 
     void FixedUpdate()

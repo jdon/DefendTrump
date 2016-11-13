@@ -10,6 +10,7 @@ public class HitEnemy : MonoBehaviour {
 	public bool aoe = false;
 	public double aoeRange = 3;
 	public float aoeDamage = 50;
+	public int MaxAoeEnemyNum = 5;
     private Vector3 previousDirection = Vector3.zero;
 	// Use this for initialization
 	void Start () {

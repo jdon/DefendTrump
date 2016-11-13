@@ -99,7 +99,7 @@ public class FindEnemy : MonoBehaviour {
 
     void OnMouseDown()
     {
-        Debug.Log("click LUL:");
+        //Debug.Log("click LUL:");
         TowerOptionsPane pane = GameObject.FindGameObjectWithTag("OptionsMenu").GetComponent<TowerOptionsPane>();
         pane.currentTower = this.gameObject;
         pane.LoadTowerSettings();

@@ -24,7 +24,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	{
 		if(other.gameObject.tag == "Road"){
 
-			Debug.Log ("road");	
+			//Debug.Log ("road");	
 		}
 	}
     public void OnDrag(PointerEventData eventData)
@@ -43,7 +43,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         towerPos.z = 0;
 		//find roads and check if the tower can rekt scrubs or not
 		GameObject[] Roads = GameObject.FindGameObjectsWithTag("Road");
-        Debug.Log(towerPos.ToString());
+        //Debug.Log(towerPos.ToString());
         GameObject tower = Instantiate(Resources.Load("Tower"),towerPos, Quaternion.identity) as GameObject;
         transform.position = startPosition;
         transform.localScale = new Vector3(1,1, 1);

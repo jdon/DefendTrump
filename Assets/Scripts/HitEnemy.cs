@@ -25,7 +25,7 @@ public class HitEnemy : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "enemy")
 		{
-            Debug.Log("hitenemy: destroy");
+            //Debug.Log("hitenemy: destroy");
             Destroy(this.gameObject);
             Destroy(other.gameObject);
   

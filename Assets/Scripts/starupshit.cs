@@ -36,11 +36,14 @@ public class starupshit : MonoBehaviour {
 
         for (int i = 0; i < enemyAmount; i++)
         {
-            Debug.Log("spawning");
-            Debug.Log(enemyAmount + " i:" + i);
             yield return new WaitForSeconds(spawnDelay); // wait to
                                                          // do things
             spawnEnemy();
+            if (i == enemyAmount - 1)
+            {
+                //all enemies are spawned
+                run = true;
+            }
         }
     }
 
@@ -51,7 +54,6 @@ public class starupshit : MonoBehaviour {
 		FollowerScript followerstats = enemy.GetComponent<FollowerScript> ();
         enStats.health *= multiplier;
         followerstats.speed *= multiplier;
-		//enemyAmount *= (int)multiplier;
 	}
 
     // Use this for initialization
@@ -62,6 +64,12 @@ public class starupshit : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("enemy");
+        if (enemies.Length == 0 && run)
+        {
+            Debug.Log("wave complete");
+            StartCoroutine("MyEvent");
+            run = false;
+        }
 	}
 
 }

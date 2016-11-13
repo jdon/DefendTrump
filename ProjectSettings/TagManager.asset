@@ -12,6 +12,7 @@ TagManager:
   - StartupScript
   - toggle
   - OptionsMenu
+  - Gold Display
   layers:
   - Default
   - TransparentFX

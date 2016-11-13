@@ -22,7 +22,7 @@ public class RoadColl : MonoBehaviour {
 				startup.Money += settings.towerPrice;
 			}
 			Destroy (other.gameObject);
-			Debug.Log ("topkekkekekekek");	
+			//Debug.Log ("topkekkekekekek");	
 		}
 	}
 	

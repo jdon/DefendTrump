@@ -15,7 +15,7 @@ public class EnemyStats : MonoBehaviour {
 		}
 		starupshit GameStats = Gamestartup.GetComponent<starupshit> ();
 		GameStats.Money += reward;
-		print("enemy was destroyed");
+		//print("enemy was destroyed");
         Destroy(this.gameObject);
 	}
 	// Use this for initialization
@@ -24,7 +24,7 @@ public class EnemyStats : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.gameObject.tag == "Missile") {
-			Debug.Log ("kek-health");
+			//Debug.Log ("kek-health");
 			HitEnemy script = other.gameObject.GetComponent<HitEnemy>();
 			if (script.aoe == true) {
 				//its an aoe bomb
@@ -47,7 +47,7 @@ public class EnemyStats : MonoBehaviour {
 			health -= script.damage;
 			if (health <= 0) 
 			{
-                Debug.Log("health = " + health + " "); 
+                //Debug.Log("health = " + health + " "); 
 				Destroy(this.gameObject);	
 			}
 		}

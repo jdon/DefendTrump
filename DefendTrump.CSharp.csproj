@@ -76,7 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AnimationEnd.cs" />
+    <Compile Include="Assets\CameraFix.cs" />
     <Compile Include="Assets\Draggable.cs" />
+    <Compile Include="Assets\PanelGridScale.cs" />
     <Compile Include="Assets\Scripts\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\FindEnemy.cs" />
     <Compile Include="Assets\Scripts\FollowerScript.cs" />

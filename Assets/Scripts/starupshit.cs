@@ -15,27 +15,16 @@ public class starupshit : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetMouseButton(0))
-        {
-            Debug.Log("keklick");
-            Vector3 mouse = Input.mousePosition;
-            mouse = Camera.main.ScreenToWorldPoint(mouse);
-            mouse.z = 0;
-            Debug.Log(mouse.x + " " + mouse.y + " " + mouse.z);
-            GameObject tower = Instantiate(Resources.Load("Tower"),mouse,Quaternion.identity) as GameObject;
+		//if(Input.GetMouseButton(0))
+  //      {
+  //          Debug.Log("keklick");
+  //          Vector3 mouse = Input.mousePosition;
+  //          mouse = Camera.main.ScreenToWorldPoint(mouse);
+  //          mouse.z = 0;
+  //          Debug.Log(mouse.x + " " + mouse.y + " " + mouse.z);
+  //          GameObject tower = Instantiate(Resources.Load("Tower"),mouse,Quaternion.identity) as GameObject;
 
-        }
+  //      }
 	}
-
-    void OnMouseClick()
-    {
-        Debug.Log("keklick");
-        Vector3 mouse = Input.mousePosition;
-        mouse = Camera.main.ScreenToWorldPoint(mouse);
-        mouse.z = 0;
-        Debug.Log(mouse.x + " " + mouse.y + " " + mouse.z);
-        GameObject tower = Instantiate(Resources.Load("Tower"), mouse, Quaternion.identity) as GameObject;
-        FindEnemy scri = tower.GetComponent<FindEnemy>();
-    }
 
 }

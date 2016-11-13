@@ -5,8 +5,19 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour {
 
 	public double health = 100;
+	public float lifeWorth = 1;
+	public float reward = 10;
 
 
+	void OnDestroy() {
+		GameObject Gamestartup = GameObject.FindGameObjectWithTag ("StartupScript");
+		if (Gamestartup == null){
+			return;	
+		}
+		starupshit GameStats = Gamestartup.GetComponent<starupshit> ();
+		GameStats.Money += reward;
+		print("enemy was destroyed");
+	}
 	// Use this for initialization
 	void Start () {
 
@@ -16,7 +27,7 @@ public class EnemyStats : MonoBehaviour {
 			//Debug.Log ("kek-health");
 			HitEnemy script = other.gameObject.GetComponent<HitEnemy>();
 			if (script.aoe == true) {
-				//its an aoe cluster bomb
+				//its an aoe bomb
 				GameObject[] enemies = GameObject.FindGameObjectsWithTag("enemy");
 				int enemynum = 0;
 				foreach (GameObject e in enemies) {

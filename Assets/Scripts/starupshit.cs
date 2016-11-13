@@ -6,6 +6,8 @@ public class starupshit : MonoBehaviour {
 
 	public int enemyAmount = 10;
 	public float spawnDelay = 0.1f;
+	public float Money = 1000;
+	public float life = 100;
 
 	private IEnumerator MyEvent()
 	{

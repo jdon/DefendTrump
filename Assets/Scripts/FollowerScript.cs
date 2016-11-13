@@ -25,6 +25,15 @@ public class FollowerScript : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position,target,speed * Time.deltaTime);
             if(transform.position == target)
             {
+				if(waypoints.Length == (currentwaypoint+1))
+				{
+					//rip last waypoint
+					EnemyStats enStats = GetComponent<EnemyStats>();
+					GameObject startup = GameObject.FindGameObjectWithTag("StartupScript");
+					starupshit GameStats = startup.GetComponent<starupshit>();
+					GameStats.life -= enStats.lifeWorth;
+
+				}
                 currentwaypoint++;
             }
         }

@@ -23,7 +23,7 @@ public class EnemyStats : MonoBehaviour {
 					float dist = Vector3.Distance(transform.position, e.transform.position);
 					if (dist <= script.aoeRange) {
 						enemynum++;
-						if(enemynum > script.MaxAoeEnemyNum){
+						if(enemynum <= script.MaxAoeEnemyNum){
 							EnemyStats enstats = e.GetComponent<EnemyStats> ();
 							enstats.health -= script.aoeDamage;
 							if (enstats.health <= 0) {

@@ -5,14 +5,28 @@ using UnityEngine;
 public class starupshit : MonoBehaviour {
 
 	public int enemyAmount = 10;
+	public int spawnDelay = 0.1;
+
+	private IEnumerator MyEvent()
+	{
+		while (true)
+		{
+			yield return new WaitForSeconds(spawnDelay); // wait half a second
+			// do things
+			spawnEnemy();
+		}
+	}
+
+	public void spawnEnemy(){
+		GameObject startPlace = GameObject.FindGameObjectWithTag("Start");
+		GameObject enemy = Instantiate(Resources.Load("enemy"), startPlace.transform.position, Quaternion.identity)as GameObject;
+	}
 
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i <= enemyAmount; i++) {
-			float test = (float)i;
-			GameObject startPlace = GameObject.FindGameObjectWithTag("Start");
-			GameObject enemy = Instantiate(Resources.Load("enemy"), startPlace.transform.position, Quaternion.identity)as GameObject;
-		}
+			StartCoroutine("MyEvent");
+	}
 	}
 	// Update is called once per frame
 	void Update () {

@@ -17,6 +17,7 @@ public class FindEnemy : MonoBehaviour {
 	public double aoeRange = 3;
 	public float aoeDamage = 50;
 	bool fire = true;
+	int colorint = 0;
 	// Use this for initialization
 	void Start () {
         StartCoroutine("MyEvent");
@@ -29,6 +30,7 @@ public class FindEnemy : MonoBehaviour {
             yield return new WaitForSeconds(fireDelay); // wait half a second
                                                    // do things
             tryFire();
+			Debug.Log ("colour:" + colorint);
         }
     }
 
@@ -67,13 +69,26 @@ public class FindEnemy : MonoBehaviour {
             if (dist <= towerRange)
             {
                 GameObject test = Instantiate(Resources.Load("Missile"), transform.position, Quaternion.identity) as GameObject;
-                HitEnemy scri = test.GetComponent<HitEnemy>();
+				HitEnemy scri = test.GetComponent<HitEnemy>();
+				SpriteRenderer re = test.GetComponent<SpriteRenderer>();
+				//Debug.Log (re.color);
+				if (colorint == 0){
+					re.color = Color.green;
+				}
+				if (colorint == 1){
+					re.color = Color.red;
+				}
+				if (colorint >= 2){
+					re.color = Color.blue;
+					colorint = -1;
+				}
                 scri.target = e;
 				scri.aoe = aoe;
 				scri.aoeRange = aoeRange;
 				scri.aoeDamage = aoeDamage;
 				scri.damage = damage;
 				scri.speed = speed;
+				colorint++;
                 return;
             }
         }

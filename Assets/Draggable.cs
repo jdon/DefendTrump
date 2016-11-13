@@ -38,6 +38,14 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         GameObject tower = Instantiate(Resources.Load("Tower"),towerPos, Quaternion.identity) as GameObject;
         transform.position = startPosition;
         FindEnemy settings = tower.GetComponent<FindEnemy>();
+		starupshit startup = GameObject.FindGameObjectWithTag ("StartupScript").GetComponent<starupshit> ();
+		if(startup.Money < settings.towerPrice)
+		{
+			//your poor son
+			Destroy(tower);
+			return;
+		}
+		startup.Money -= settings.towerPrice;
         switch (towerType)
         {
             case "AoE":

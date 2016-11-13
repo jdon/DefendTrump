@@ -32,6 +32,8 @@ public class FollowerScript : MonoBehaviour {
 					GameObject startup = GameObject.FindGameObjectWithTag("StartupScript");
 					starupshit GameStats = startup.GetComponent<starupshit>();
 					GameStats.life -= enStats.lifeWorth;
+					Destroy(this.gameObject);
+					return;
 
 				}
                 currentwaypoint++;

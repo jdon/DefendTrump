@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyStats : MonoBehaviour {
 
 	public double health = 100;
 	public float lifeWorth = 1;
-	public float reward = 10;
-
-
+	public float reward;
 	void OnDestroy() {
 		GameObject Gamestartup = GameObject.FindGameObjectWithTag ("StartupScript");
 		if (Gamestartup == null){
@@ -54,6 +53,9 @@ public class EnemyStats : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		reward = (float)(100 -  Math.Pow(1.25,health/100));
+		if(reward > 4){
+			reward = 4;
+		}
 	}
 }

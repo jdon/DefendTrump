@@ -54,7 +54,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 settings.aoeRange = 5;
                 settings.aoeDamage = 50;
                 settings.towerRange = 10;
-                settings.priortityHealth = true;
+                settings.priority = 2;
                 break;
             case "Basic":
             default:

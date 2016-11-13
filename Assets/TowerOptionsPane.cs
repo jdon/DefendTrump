@@ -5,30 +5,35 @@ using UnityEngine.UI;
 public class TowerOptionsPane : MonoBehaviour {
 
     public GameObject currentTower;
-    static Toggle priorityLastToggle;
-    static Toggle priorityHealthToggle;
+    private Dropdown priorityDropdown;
 	// Use this for initialization
 	void Start () {
         currentTower = null;
-        priorityLastToggle = GameObject.Find("PriorityLastToggle").GetComponent<Toggle>();
-        priorityHealthToggle = GameObject.Find("PriorityHealthToggle").GetComponent<Toggle>();
+        priorityDropdown = GameObject.FindGameObjectWithTag("toggle").GetComponent<Dropdown>();
+        priorityDropdown.interactable = false;
 	}
 
 
     public void LoadTowerSettings()
     {
         FindEnemy enstats = currentTower.GetComponent<FindEnemy>();
-        priorityLastToggle.isOn = enstats.priortityLast;
-        priorityHealthToggle.isOn = enstats.priortityHealth;
+        priorityDropdown.interactable = true;
+        priorityDropdown.value = enstats.priority;
     }
 
-    public void SetTowerSettings()
+    public void SetTowerPriority()
     {
         FindEnemy script = currentTower.GetComponent<FindEnemy>();
+        script.priority = priorityDropdown.value;
 
-        script.priortityLast = priorityLastToggle.isOn;
-        script.priortityHealth = priorityHealthToggle.isOn;
     }
+
+    public void priorityChanged()
+    {
+        FindEnemy script = currentTower.GetComponent<FindEnemy>();
+        script.priority = priorityDropdown.value;
+    }
+
 
     // Update is called once per frame
     void Update () {

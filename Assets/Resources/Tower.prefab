@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61407389615374534}
   m_Layer: 0
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerRange: 2000
+  towerPrice: 100
   fireDelay: 0.5
+  priority: 0
   priortityHealth: 0
   priortityLast: 0
   speed: 35

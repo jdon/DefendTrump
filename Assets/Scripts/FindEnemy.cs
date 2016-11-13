@@ -5,6 +5,7 @@ using System;
 using System.Linq;
 
 public class FindEnemy : MonoBehaviour {
+   
 
 	public double towerRange = 20;
 	public float towerPrice = 100;
@@ -29,7 +30,7 @@ public class FindEnemy : MonoBehaviour {
             yield return new WaitForSeconds(fireDelay); // wait half a second
                                                    // do things
             tryFire();
-			Debug.Log ("colour:" + colorint);
+			//Debug.Log ("colour:" + colorint);
         }
     }
 

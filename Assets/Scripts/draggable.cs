@@ -49,7 +49,32 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         transform.localScale = new Vector3(1,1, 1);
         FindEnemy settings = tower.GetComponent<FindEnemy>();
 		starupshit startup = GameObject.FindGameObjectWithTag ("StartupScript").GetComponent<starupshit> ();
-		if(startup.Money < settings.towerPrice)
+
+        int price;
+
+        switch(towerType)
+        {
+            case "Basic":
+                price = 100;
+                break;
+            case "Rocket":
+                price = 200;
+                break;
+            case "BigRocket":
+                price = 300;
+                break;
+            case "Sniper":
+                price = 300;
+                break;
+            case "RapidFire":
+                price = 1000;
+                break;
+            default:
+                price = 100;
+                break;
+        }
+
+		if(startup.Money < price)
 		{
 			//your poor son
 			Destroy(tower);
@@ -64,7 +89,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 towerSpriteRenderer.sprite = spriteGetter.sniperR;
                 settings.towerRange = 200f;
                 settings.aoe = false;
-                settings.damage = 120;
+                settings.damage = 250;
                 settings.fireDelay = 1.5f;
                 break;
             case "RapidFire":
@@ -77,23 +102,25 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
                 settings.aoe = true;
                 settings.damage = 100;
                 settings.fireDelay = 2f;
-                settings.aoeRange = 6;
-                settings.aoeDamage = 75;
+                settings.aoeRange = 25f;
+                settings.aoeDamage = 100;
                 settings.towerRange = 50;
                 towerSpriteRenderer.sprite = spriteGetter.bigrocketR;
                 break;
             case "Rocket":
                 settings.aoe = true;
-                settings.damage = 50;
-                settings.aoeDamage = 50;
+                settings.aoeRange = 15f;
+                settings.damage = 75;
+                settings.aoeDamage = 75;
                 settings.fireDelay = 1f;
                 settings.towerRange = 20f;
                 towerSpriteRenderer.sprite = spriteGetter.rocketR;
                 break;
+            case "Basic":
             default:
                 settings.fireDelay = 0.5f;
                 settings.towerRange = 40;
-                settings.damage = 25;
+                settings.damage = 34;
                 settings.aoe = false;
                 towerSpriteRenderer.sprite = spriteGetter.BasicR;
                 break;

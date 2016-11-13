@@ -5,7 +5,9 @@ using System;
 using System.Linq;
 
 public class FindEnemy : MonoBehaviour {
-   
+
+    public int[] Prices = { 100, 200, 300, 300, 1000 };
+
 
 	public double towerRange = 20;
 	public float towerPrice = 100;

@@ -5,10 +5,11 @@ using UnityEngine;
 public class starupshit : MonoBehaviour {
 
 	public int enemyAmount = 10;
-	public float spawnDelay = 0.5f;
+	public float spawnDelay = 0.1f;
 	public float Money = 150;
 	public float life = 100;
-	private float multiplier = 0.9f;
+	private float multiplier = 1.0f;
+    public int waveNum = 1;
 
     public Sprite BasicR;
     public Sprite BasicG;
@@ -66,6 +67,9 @@ public class starupshit : MonoBehaviour {
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag ("enemy");
         if (enemies.Length == 0 && run)
         {
+            multiplier += 0.1f;
+            enemyAmount += 2;
+            waveNum++;
             Debug.Log("wave complete");
             StartCoroutine("MyEvent");
             run = false;

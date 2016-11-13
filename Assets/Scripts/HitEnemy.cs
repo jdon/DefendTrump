@@ -27,7 +27,7 @@ public class HitEnemy : MonoBehaviour {
 		{
             //Debug.Log("hitenemy: destroy");
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
   
         }
     }

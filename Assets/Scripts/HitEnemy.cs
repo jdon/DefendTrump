@@ -23,7 +23,10 @@ public class HitEnemy : MonoBehaviour {
     }
 
 	void OnTriggerEnter2D(Collider2D other){
-		Destroy (this.gameObject);
+		if(other.gameObject.tag == "enemy")
+		{
+			Destroy (this.gameObject);
+		}
 	}
 	// Update is called once per frame
 	void Update () {

@@ -20,7 +20,13 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         startParent = transform.parent;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.gameObject.tag == "Road"){
 
+			Debug.Log ("road");	
+		}
+	}
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = eventData.position;
@@ -34,6 +40,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         Vector3 towerPos = transform.position;
         towerPos = Camera.main.ScreenToWorldPoint(towerPos);
         towerPos.z = 0;
+		//find roads and check if the tower can rekt scrubs or not
+		GameObject[] Roads = GameObject.FindGameObjectsWithTag("Road");
         Debug.Log(towerPos.ToString());
         GameObject tower = Instantiate(Resources.Load("Tower"),towerPos, Quaternion.identity) as GameObject;
         transform.position = startPosition;

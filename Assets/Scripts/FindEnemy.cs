@@ -7,8 +7,10 @@ using System.Linq;
 public class FindEnemy : MonoBehaviour {
 
 	public double towerRange = 20;
+	public float towerPrice = 100;
 	GameObject bullet;
     public float fireDelay = 0.1f;
+	public int priority = 0;
 	public Boolean priortityHealth = false;
 	public Boolean priortityLast = false;
 	public float speed = 35;

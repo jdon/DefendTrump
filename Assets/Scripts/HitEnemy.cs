@@ -39,14 +39,5 @@ public class HitEnemy : MonoBehaviour {
         }
         previousDirection = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime) - transform.position;
         transform.position = previousDirection + transform.position;
-		GameObject[] Enemies = GameObject.FindGameObjectsWithTag("enemy");
-		foreach (GameObject e in Enemies) {
-			if (e.transform.position == transform.position) 
-			{
-				Destroy(this.gameObject);
-				Destroy(target.gameObject);
-			}
-		}
-        
 	}
 }
